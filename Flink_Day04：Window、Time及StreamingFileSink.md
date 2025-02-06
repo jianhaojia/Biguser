@@ -1268,9 +1268,9 @@ public class _09StreamEventTimeWindow {
 
 
 
-## 22-[理解]-Flink Time之引入 Watermark
+## 22-[理解]-Flink Time之引入 Watermaker
 
-> ​		基于==事件时间EventTime窗口==分析，默认情况下，如果某个窗口触发计算以后，再来一条窗口内的数据，此时不会计算这条数据，而是直接丢弃。
+> ​		基于事件时间EventTime窗口分析，默认情况下，如果某个窗口触发计算以后，再来一条窗口内的数据，此时不会计算这条数据，而是直接丢弃。
 
 ![1615103309161](/img/1615103309161.png)
 
@@ -1296,7 +1296,7 @@ public class _09StreamEventTimeWindow {
 
 
 
-## 23-[理解]-Flink Time之Watermark 是什么 
+## 23-[理解]-Flink Time之Watermaker 是什么 
 
 > - 1）、Watermark水位线定义：
 
@@ -1306,7 +1306,7 @@ public class _09StreamEventTimeWindow {
 
 
 
-> - 2）、Watermark如何计算：
+> - 2）、Watermaker 如何计算：
 
 ![1615103936739](/img/1615103936739.png)
 
@@ -1341,7 +1341,7 @@ Watermaker = 当前窗口的最大的事件时间 - 最大允许的延迟时间�
 
 
 
-> 当设置水位Watermark以后，窗口触发计算和乱序数据达到处理流程
+> 当设置水位WaterMark以后，窗口触发计算和乱序数据达到处理流程
 
 ![1630241199635](/img/1630241199635.png)
 
@@ -1378,15 +1378,11 @@ Watermaker = 当前窗口的最大的事件时间 - 最大允许的延迟时间�
 
 
 
-> ​		此外，如果延迟数据超过设置allowedLateness时长到达，可以通过**侧边流Side OutputTag保存延迟数据**，然后进行单独处理，代码如下所示：
+> ​		此外，如果延迟数据超过设置allowedLateness时长到达，可以通过侧边流Side OutputTag保存延迟数据，然后进行单独处理，代码如下所示：
 
 ![1630247813281](/img/1630247813281.png)
 
 
-
-> 如下所示：基于事件时间窗口分析，数据乱序（watermark）、数据延迟（Allowedness）和非常延迟（SideOutput）处理方案示意图。
-
-![1630307872963](/img/1630307872963.png)
 
 
 
